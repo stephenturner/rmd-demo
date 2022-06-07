@@ -1,0 +1,43 @@
+---
+title: "Data analysis example"
+author: "Stephen Turner"
+date: "July 4, 1776"
+output: pdf_document
+---
+
+# Introduction
+
+We performed an experiment measuring the **value** in two different groups, A and B. Methods and results are shown below.
+
+# Methods
+
+We collected 10 samples in each group A and B. We analyzed the _value_ of each sample in each _group_. 
+
+# Results
+
+```{r, echo=FALSE}
+dat <- read.delim("data.txt")
+
+mean_a <- mean(dat$value[dat$group=="A"])
+
+mean_b <- mean(dat$value[dat$group=="B"])
+```
+
+The mean of group A is: `r mean_a`. The mean of group B is: `r mean_b`. 
+
+Here are the results of a two-sample t-test:
+
+```{r, echo=FALSE}
+t.test(value~group, data=dat)
+```
+
+Next, let's plot the data:
+
+```{r, echo=FALSE, fig.cap="Plot of means of group A and B."}
+barplot(c(mean_a, mean_b), names=c("Mean A", "Mean B"))
+```
+
+```{r, echo=FALSE, fig.cap="Box and whisker plot of groups A and B."}
+boxplot(value~group, data=dat)
+```
+
