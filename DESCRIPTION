@@ -1,0 +1,11 @@
+Type: Compendium
+Package: RMarkdown-demo
+Version: 0.0.1
+Authors@R: 
+    person("Stephen", "Turner", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9140-9028"))
+Description: Rmarkdown demonstration
+License: What license it uses
+Depends: 
+    rmarkdown
+Encoding: UTF-8
+LazyData: true
